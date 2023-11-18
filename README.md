@@ -1,1 +1,1 @@
-Since iam passionate and learning devops , so i will upload the code or scripts in this repo.
+Since iam passionate in DevOps and Learning it , so i will upload the code or scripts in this repo.
