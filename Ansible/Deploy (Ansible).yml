@@ -1,0 +1,27 @@
+# Deploy Application In Ansible
+
+- hosts : all
+  become : true
+  tasks:
+    - name: To install Java
+      yum:
+        name: java
+        state: latest
+    - name: Download Tomcat Package
+      get_url:
+        url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.83/bin/apache-tomcat-9.0.83.tar.gz
+        dest: /opt/
+        mode: '0755'
+    - name: untar the file
+      unarchive:
+        src: /opt/apache-tomcat-9.0.83.tar.gz
+        dest: /opt/
+        remote_src: yes
+        mode: '0755'
+    - name: To startup tomcat
+        shell: nohup /opt/apache-tomcat-9.0.83/bin/startup.sh  &
+    - name : Sample War file
+      copy :
+        src : /home/ec2-user/sample.war
+        dest: /opt/apache-tomcat-9.0.83/webapps/sample.war
+        mode: '0777'
