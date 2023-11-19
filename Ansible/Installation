@@ -1,0 +1,11 @@
+#! /bin/bash
+yum install python-pip -y
+pip install ansible
+
+
+
+
+
+# This Script is to be entered on during the creation of EC2 instance at the space provided in Advanced Details .
+
+# This will install python and ansible to the instance . 
